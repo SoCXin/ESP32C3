@@ -1,0 +1,9 @@
+*.pyc
+*__py*/
+*.pio/
+*.vscode/
+*.rst
+*.rel
+*.sym
+*.lst
+*.asm
