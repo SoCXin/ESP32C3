@@ -6,14 +6,14 @@
 
 ## [芯片描述](https://github.com/SoCXin/ESP32-C3/wiki)
 
-[ESP32-C3](https://github.com/SoCXin/ESP32-C3)
-
-<!-- [![sites](docs/CH579.png)](http://www.wch.cn/products/CH579.html) -->
+[ESP32-C3](https://github.com/SoCXin/ESP32-C3) RISC-V 32 位单核处理器，四级流水线架构，主频高达 160 MHz
+内置 400 KB SRAM、384 KB ROM 存储空间，并支持多个外部 SPI、Dual SPI、Quad SPI、QPI flash
+基于 RSA-3072 算法的安全启动、基于 AES-128-XTS 算法的 flash 加密、创新的数字签名和 HMAC 模块、支持加密算法的硬件加速器
+丰富的通信接口及 GPIO 管脚，可支持多种场景及复杂的应用
 
 #### 关键特性
 
-* 双模：BLE兼容4.2规范，Zigbee兼容IEEE 802.15.4规范，单端RF接口无需外部电感
-* 支持3.3V和2.5V电源，范围2.1V～3.6V, 内置DC/DC转换
+* 双模：Wi-Fi & BLE 5.0
 
 
 ### [资源收录](https://github.com/SoCXin)
