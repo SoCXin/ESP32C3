@@ -1,0 +1,33 @@
+{
+    "type":"SoC",
+    "name":"ESP32-C3",
+    "title": "Espressif ESP32-C3 SoC",
+    "description":"Espressif WiFi BLE SoC",
+    "Core": {
+        "num": 1,
+        "type":"RISC-V",
+        "Freq":160,
+        "DMIPS": 600,
+        "CoreMark": 660
+    },
+    "manufacturer": {
+        "vendor":"Espressif",
+        "homepage":"https://www.espressif.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SoCXin/ESP32-C3.git"
+    },
+    "version":"1.0.0",
+    "series":["ESP32-C3"],
+    "package":["QFN32"],
+    "peripheral": ["ADC","DAC","USB","OTG","CAN","SDIO","USART","SPI","IIC"],
+    "keywords": [
+        "dev-platform",
+        "RISC-V",
+        "Espressif",
+        "MIPS",
+        "MAC10/100","DAC","SDIO","CAN","I2C","RTC","SPI",
+        "3.6V","1.8V"
+    ]
+}

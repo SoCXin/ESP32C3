@@ -1,29 +1,37 @@
 ﻿# [ESP32-C3](https://github.com/SoCXin/ESP32-C3)
 
-#### [Vendor](https://github.com/SoCXin/Vendor)：[Espressif](https://github.com/SoCXin/espressif)
-#### [Core](https://github.com/SoCXin/RISC-V)：[RISC-V](https://github.com/SoCXin/RISC-V)
-#### [Level](https://github.com/SoCXin/Level)：1.22DMIPS/MHz x 160MHz
+[![sites](http://182.61.61.133/link/resources/SoC.png)](http://www.SoC.Xin)
 
-## [芯片描述](https://github.com/SoCXin/ESP32-C3/wiki)
+* [Espressif](https://www.espressif.com/): [RISC-V](https://github.com/SoCXin/RISC-V)
+* [L4R3](https://github.com/SoCXin/Level): 160 MHz x 1.22 DMIPS/MHz
 
-[ESP32-C3](https://github.com/SoCXin/ESP32-C3) RISC-V 32 位单核处理器，四级流水线架构，主频高达 160 MHz
-内置 400 KB SRAM、384 KB ROM 存储空间，并支持多个外部 SPI、Dual SPI、Quad SPI、QPI flash
-基于 RSA-3072 算法的安全启动、基于 AES-128-XTS 算法的 flash 加密、创新的数字签名和 HMAC 模块、支持加密算法的硬件加速器
-丰富的通信接口及 GPIO 管脚，可支持多种场景及复杂的应用
 
-#### 关键特性
+### [简介](https://github.com/SoCXin/ESP32-C3/wiki)
 
-* 双模：Wi-Fi & BLE 5.0
+[ESP32-C3](https://github.com/SoCXin/ESP32-C3)
 
+[![sites](docs/ESP32-C3.png)](https://www.espressif.com/zh-hans/products/socs/ESP32-C3)
+
+
+#### 关键参数
+
+* 400 KB SRAM (TCM)，384 KB ROM
+* 2.4 GHz Wi-Fi & BLE 5.0
+* USB1.1
+* 2 × UART
+* 22  x GPIO
+* -40°~85°工作温度
+* QFN32 (5x5mm)
 
 ### [资源收录](https://github.com/SoCXin)
 
-* [参考文档](docs/)
 * [参考资源](src/)
+* [参考文档](docs/)
 * [参考工程](project/)
 
-### [选型建议](https://github.com/SoCXin)
 
-[ESP32-C3](https://github.com/SoCXin/ESP32-C3)拥有 ESP32传统的WiFi和蓝牙功能，并且使用RISC-V内核，性价比高。
+### [选型建议](https://github.com/SoCXin/ESP32-C3)
 
-###  [探索芯世界 www.SoC.xin](http://www.SoC.Xin)
+[ESP32-C3](https://github.com/SoCXin/ESP32-C3) 支持基于 RSA-3072 算法的安全启动和基于 AES-128-XTS 算法的 flash 加密功能
+
+### [探索芯世界 www.SoC.xin](http://www.SoC.Xin)
