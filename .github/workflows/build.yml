@@ -3,7 +3,7 @@ name: build
 on:
   push:
     paths:
-      - 'src/template/**'
+      - 'src/**'
       - '**/build.yml'
 
 jobs:
@@ -37,3 +37,31 @@ jobs:
         working-directory: src/template
         run: |
           platformio run -d ${{ matrix.example }}
+
+  IDF:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Install ESP-IDF
+        uses: CalinRadoni/esp-idf-v4-action@v2
+        with:
+          esp_idf_version: 'v4.3'
+
+      - name: Build Rainbow-LED-Strip
+        working-directory: src/demo/Rainbow-LED-Strip
+        run: |
+          source ~/esp/esp-idf/export.sh
+          idf.py build
+
+      - name: Build esp32c3_sandbox
+        working-directory: src/demo/esp32c3_sandbox
+        run: |
+          source ~/esp/esp-idf/export.sh
+          idf.py build
+          idf.py reconfigure
+          idf.py app
+          idf.py size

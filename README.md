@@ -5,6 +5,9 @@
 * [Espressif](https://www.espressif.com/): [RISC-V](https://github.com/SoCXin/RISC-V)
 * [L4R3](https://github.com/SoCXin/Level): 160 MHz x 1.22 DMIPS/MHz, [195 CoreMark](https://www.eembc.org/coremark/scores.php)
 
+[![Build Status](https://github.com/SoCXin/ESP32C3/workflows/check/badge.svg)](https://github.com/SoCXin/ESP32C3/actions/workflows/check.yml)
+[![Build Status](https://github.com/SoCXin/ESP32C3/workflows/build/badge.svg)](https://github.com/SoCXin/ESP32C3/actions/workflows/build.yml)
+
 ### [xin简介](https://github.com/SoCXin/ESP32C3/wiki)
 
 
