@@ -66,18 +66,38 @@ jobs:
           idf.py app
           idf.py size
 
-  # Docker:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #       with:
-  #         submodules: "recursive"
-  #         fetch-depth: 1
+  Docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
 
-  #     - name: Build the code
-  #       working-directory: src/demo/esp32c3_sandbox
-  #       uses: CalinRadoni/esp-idf-v4-container-action@v4.1
-  #       id: esp-idf-build
+      - name: Create the code library
+        working-directory: src/demo/BoardManager
+        run: |
+          mkdir -p "${{ github.workspace }}/lib/ESP32"
+          cd "${{ github.workspace }}/lib/ESP32"
+          git clone --depth 1 https://github.com/CalinRadoni/ESP32BoardManager.git
+          git clone --depth 1 https://github.com/CalinRadoni/ESP32SimpleOTA.git
+          git clone --depth 1 https://github.com/CalinRadoni/ESP32HAL.git
 
-  #     - name: Show the exit code
-  #       run: echo "The exit code was ${{ steps.esp-idf-build.outputs.result }}"
+      - name: Build BoardManager
+        working-directory: src/demo/BoardManager
+        uses: CalinRadoni/esp-idf-v4-container-action@v4.1
+        id: idf_build
+        with:
+          entrypoint: /github/workspace/${{ env.app-path }}/action-build.sh
+
+      - name: Compute SHA256 for bin and elf files
+        if: steps.idf_build.outputs.result == 0
+        run: |
+          fileE=$(find "${{ github.workspace }}/${{ env.app-path }}/build" -maxdepth 1 -type f -name '*.elf')
+          fileB=${fileE%.elf}.bin
+          declare -a files
+          files=("$fileE" "$fileB")
+          for file in "${files[@]}"; do
+            hash=$(sha256sum -b "$file")
+            stat -c"${hash%% *} ${file##*/} %s" "$file"
+          done
