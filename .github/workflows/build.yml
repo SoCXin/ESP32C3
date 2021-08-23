@@ -66,14 +66,6 @@ jobs:
           idf.py app
           idf.py size
 
-  Docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: "recursive"
-          fetch-depth: 1
-
       - name: Create the code library
         working-directory: src/demo/BoardManager
         run: |
@@ -84,7 +76,6 @@ jobs:
           git clone --depth 1 https://github.com/CalinRadoni/ESP32HAL.git
 
       - name: Build BoardManager
-        working-directory: src/demo/BoardManager
         uses: CalinRadoni/esp-idf-v4-container-action@v4.1
         id: idf_build
         with:
