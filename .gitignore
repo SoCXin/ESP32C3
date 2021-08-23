@@ -10,12 +10,10 @@ Debug
 *.autosave
 *~
 *#
-Change*
 CHANGE*
 README*
 COPY*
 *CONTRIBU*
-LICENSE*
 HACKING*
 Doxyfile
 README*

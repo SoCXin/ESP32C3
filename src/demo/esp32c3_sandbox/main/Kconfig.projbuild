@@ -1,0 +1,15 @@
+menu "Digital LED Config"
+    config DIGITAL_LED_OUTPUT_PIN
+        int "LED output pin"
+        range 0 34
+        default 8
+        help
+            GPIO pin connected to the DIN of the digital LEDs.
+
+    config NUMBER_OF_LEDS
+        int "Number of digital LEDs"
+        range 0 100
+        default 1
+        help
+            The number of digital LEDs connected in series.
+endmenu
