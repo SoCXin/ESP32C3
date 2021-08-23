@@ -66,18 +66,18 @@ jobs:
           idf.py app
           idf.py size
 
-  Docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: "recursive"
-          fetch-depth: 1
+  # Docker:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         submodules: "recursive"
+  #         fetch-depth: 1
 
-      - name: Build the code
-        working-directory: src/demo/esp32c3_sandbox
-        uses: CalinRadoni/esp-idf-v4-container-action@v4.1
-        id: esp-idf-build
+  #     - name: Build the code
+  #       working-directory: src/demo/esp32c3_sandbox
+  #       uses: CalinRadoni/esp-idf-v4-container-action@v4.1
+  #       id: esp-idf-build
 
-      - name: Show the exit code
-        run: echo "The exit code was ${{ steps.esp-idf-build.outputs.result }}"
+  #     - name: Show the exit code
+  #       run: echo "The exit code was ${{ steps.esp-idf-build.outputs.result }}"
