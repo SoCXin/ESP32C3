@@ -37,7 +37,7 @@ README*
 *.drl
 *.ods
 *.odg
-*.csv
+# *.csv
 *.xml
 *.pdf
 *.xlsx
