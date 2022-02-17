@@ -3,7 +3,8 @@
 [![sites](http://182.61.61.133/link/resources/SoC.png)](http://www.SoC.Xin)
 
 * [Espressif](https://www.espressif.com/): [RISC-V](https://github.com/SoCXin/RISC-V)
-* [L4R3](https://github.com/SoCXin/Level): 160 MHz x 1.22 DMIPS/MHz, [195 CoreMark](https://www.eembc.org/coremark/scores.php)
+* [L4R3](https://github.com/SoCXin/Level): 160 MHz x 2.55 CoreMark/MHz, [407.22 CoreMark](https://www.eembc.org/coremark/scores.php)
+* [Xin](https://docs.soc.xin/ESP32-C3)
 
 [![Build Status](https://github.com/SoCXin/ESP32C3/workflows/check/badge.svg)](https://github.com/SoCXin/ESP32C3/actions/workflows/check.yml)
 [![Build Status](https://github.com/SoCXin/ESP32C3/workflows/build/badge.svg)](https://github.com/SoCXin/ESP32C3/actions/workflows/build.yml)
@@ -28,7 +29,7 @@
 * [参考资源](src/)
 * [相关文档](docs/)
 * [典型应用](project/)
-* [入门教程](https://docs.soc.xin/ESP32-C3)
+* [芯片手册](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_cn.pdf)
 
 ### [选型建议](https://github.com/SoCXin/ESP32C3)
 
