@@ -21,12 +21,11 @@
     "version":"1.0.0",
     "series":["ESP32-C3"],
     "package":["QFN32"],
-    "peripheral": ["ADC","DAC","USB","OTG","CAN","SDIO","USART","SPI","IIC"],
+    "peripheral": ["ADC","CAN","SDIO","UART","SPI","IIC"],
     "keywords": [
-        "dev-platform",
         "RISC-V",
         "Espressif",
-        "MAC10/100","DAC","SDIO","CAN","I2C","RTC","SPI",
+        "ADC","SDIO","CAN","I2C","RTC","SPI",
         "3.6V","1.8V"
     ]
 }

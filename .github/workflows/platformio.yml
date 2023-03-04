@@ -1,0 +1,43 @@
+name: platformio
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'src/platformio/**'
+      - '**/platformio.yml'
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - "hello"
+          - "strip"
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U https://github.com/platformio/platformio/archive/develop.zip
+
+      - name: platformio build
+        working-directory: src/platformio
+        run: |
+          platformio run -d ${{ matrix.example }}
+
+

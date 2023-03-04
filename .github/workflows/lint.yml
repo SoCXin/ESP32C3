@@ -1,7 +1,9 @@
-name: check
+name: lint
 
 on:
   push:
+    branches:
+      - master
     paths:
       - '**.h'
       - '**.c'
@@ -12,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         submodules: "recursive"
         fetch-depth: 1

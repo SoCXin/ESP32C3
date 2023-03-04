@@ -17,7 +17,7 @@ jobs:
           - "pikapython"
           - "mqtt_tcp"
         idf: ["v5.0"]
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
         - uses: actions/checkout@v3
@@ -56,3 +56,31 @@ jobs:
           with:
             name: esp32c3-${{ matrix.examples }}-${{ matrix.idf }}
             path: examples/${{ matrix.examples }}/build/output
+
+
+  docker:
+    strategy:
+      fail-fast: false
+      matrix:
+        examples:
+          - "manager"
+          - "sandbox"
+          - "rainbow-led-strip"
+    runs-on: ubuntu-latest
+    container: espressif/idf:v4.3
+    timeout-minutes: 10
+    steps:
+        - uses: actions/checkout@v3
+          with:
+            submodules: "recursive"
+            fetch-depth: 1
+
+        - name: Build ${{ matrix.examples }}
+          working-directory: examples/${{ matrix.examples }}
+          run: |
+            . ${IDF_PATH}/export.sh
+            idf.py build
+            idf.py reconfigure
+            idf.py app
+            idf.py size
+
