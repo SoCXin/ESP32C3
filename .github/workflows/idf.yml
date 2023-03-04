@@ -70,17 +70,16 @@ jobs:
     container: espressif/idf:v4.3
     timeout-minutes: 10
     steps:
-        - uses: actions/checkout@v3
-          with:
-            submodules: "recursive"
-            fetch-depth: 1
+      - uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
 
-        - name: Build ${{ matrix.examples }}
-          working-directory: examples/${{ matrix.examples }}
-          run: |
-            . ${IDF_PATH}/export.sh
-            idf.py build
-            idf.py reconfigure
-            idf.py app
-            idf.py size
+      - name: Build ${{ matrix.examples }}
+        working-directory: examples/${{ matrix.examples }}
+        run: |
+          . ${IDF_PATH}/export.sh
+          idf.py build
+          idf.py reconfigure
+          idf.py app
+          idf.py size
 
