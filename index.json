@@ -2,13 +2,13 @@
     "type":"SoC",
     "name":"ESP32-C3",
     "title": "Espressif ESP32-C3 SoC",
-    "description":"Espressif WiFi BLE SoC",
+    "description":"Espressif Wi-Fi/BLE SoC",
     "Core": {
         "num": 1,
         "type":"RISC-V",
         "Freq":160,
-        "DMIPS": 600,
-        "CoreMark": 660
+        "DMIPS": 200,
+        "CoreMark": 407
     },
     "manufacturer": {
         "vendor":"Espressif",
@@ -26,7 +26,6 @@
         "dev-platform",
         "RISC-V",
         "Espressif",
-        "MIPS",
         "MAC10/100","DAC","SDIO","CAN","I2C","RTC","SPI",
         "3.6V","1.8V"
     ]
