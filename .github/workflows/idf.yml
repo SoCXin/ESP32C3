@@ -1,0 +1,58 @@
+name: idf
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'examples/**'
+      - '**/idf.yml'
+
+jobs:
+  branch:
+    strategy:
+      fail-fast: false
+      matrix:
+        examples:
+          - "pikapython"
+          - "mqtt_tcp"
+        idf: ["v5.0"]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+        - uses: actions/checkout@v3
+          with:
+            submodules: "recursive"
+
+        - name: Set up Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.10'
+
+        - name: Install
+          run: |
+            sudo apt install -y git wget flex bison gperf python3-venv python3-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util
+
+        - name: Build
+          run: |
+            git clone -b release/${{ matrix.idf }} --recursive https://github.com/espressif/esp-idf.git
+            cd esp-idf
+            ./install.sh esp32c3
+            . ./export.sh
+            cd ..
+            cd examples/${{ matrix.examples }}
+            idf.py fullclean
+            idf.py set-target esp32c3
+            idf.py build
+            idf.py uf2
+            cd build
+            esptool.py --chip esp32c3 merge_bin -o esp32c3-${{ matrix.examples }}-${{ matrix.idf }}.bin @flash_args
+            mkdir output
+            cp esp32c3-${{ matrix.examples }}-${{ matrix.idf }}.bin  output/
+            cp uf2.bin  output/
+
+        - name: Upload-all
+          uses: actions/upload-artifact@v3
+          with:
+            name: esp32c3-${{ matrix.examples }}-${{ matrix.idf }}
+            path: examples/${{ matrix.examples }}/build/output

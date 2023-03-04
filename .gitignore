@@ -11,12 +11,10 @@ Debug
 *~
 *#
 CHANGE*
-README*
 COPY*
 *CONTRIBU*
 HACKING*
 Doxyfile
-README*
 *.swp
 *.lck
 *.log
@@ -62,9 +60,9 @@ README*
 doc
 *dox
 tests
+sdkconfig.old
 # docs
 # mk
-*.md
 *.so
 *.dcm
 sdkconfig.esp32-c3*

@@ -1,0 +1,6 @@
+# Override some defaults so BT stack is enabled
+
+CONFIG_BROKER_KEEPALIVE=60
+
+# CONFIG_ESP_WIFI_STA_SSID="test"
+# CONFIG_ESP_WIFI_STA_PASSWORD="12345678"
